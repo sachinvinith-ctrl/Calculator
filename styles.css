@@ -1,14 +1,28 @@
 .calculator {
 
 display: flex;
-justify-content: center;
-align-items: flex-end;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
 width: 300px;
 height: 500px;
 border: 3px solid black;
 border-radius: 10px;
 
 }
+
+.display-box {
+
+display: flex;
+border: 2px solid black;
+width: 250px;
+height: 60px;
+border-radius: 10px;
+justify-content: flex-end;
+
+}
+
+
 
 .calculator .button-box {
 
@@ -19,6 +33,7 @@ height: 300px;
 border: 0px solid black;
 justify-content: space-between;
 padding-bottom: 20px;
+padding: 0px;
 }
 
 
