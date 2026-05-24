@@ -1,0 +1,78 @@
+.calculator {
+
+display: flex;
+justify-content: center;
+align-items: flex-end;
+width: 300px;
+height: 500px;
+border: 3px solid black;
+border-radius: 10px;
+
+}
+
+.calculator .button-box {
+
+display: flex;
+flex-direction: column;
+width: 250px;
+height: 300px;
+border: 0px solid black;
+justify-content: space-between;
+padding-bottom: 20px;
+}
+
+
+.first-line, .second-line, .third-line, .last-line {
+
+display: flex;
+justify-content: space-between;
+
+
+}
+
+.first-line > * {
+
+width: 50px;
+height: 50px;
+border: 2px solid black;
+border-radius: 10px;
+
+}
+
+.second-line > * {
+
+width: 50px;
+height: 50px;
+border: 2px solid black;
+border-radius: 10px;
+
+
+}
+
+.third-line > * {
+
+width: 50px;
+height: 50px;
+border: 2px solid black;
+border-radius: 10px;
+
+
+}
+
+.last-line > * {
+
+width: 50px;
+height: 50px;
+border: 2px solid black;
+border-radius: 10px;
+
+
+
+}
+
+
+
+
+
+
+
