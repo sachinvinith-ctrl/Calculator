@@ -50,7 +50,7 @@ operator = event.target.textContent.trim();
 console.log(operator);
 console.log(firstInput);
 
-} else if (numberId && firstInput && operator) {
+} else if (numberId && firstInput.length && operator) {
 
 secondInput.push(event.target.textContent.trim());
 console.log(secondInput);
