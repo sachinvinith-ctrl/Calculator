@@ -36,20 +36,32 @@ buttonBox.addEventListener("click", (event) => {
 
 const numberId = event.target.matches(".number-button");
 const operatorId = event.target.matches(".operator-button");
+const performOperationId = event.target.matches(".perform-operation-button");
 
-if (numberId) {
+
+if (numberId && !operator) {
 
 firstInput.push(event.target.textContent.trim());
 console.log(firstInput);
 
-} else if (firstInput.length && operatorId) {
+} else if (operatorId && firstInput.length) {
 
 operator = event.target.textContent.trim();
-firstInput = Number(firstInput.join(""));
 console.log(operator);
 console.log(firstInput);
 
+} else if (numberId && firstInput && operator) {
+
+secondInput.push(event.target.textContent.trim());
+console.log(secondInput);
+
+} else if (performOperationId && firstInput.length && operator && secondInput.length ) {
+
+alert("this");
+
 }
+
+
 
 });
 
