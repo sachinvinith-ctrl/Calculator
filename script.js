@@ -1,5 +1,4 @@
 
-
 function addition(first, second) {
 
 return first + second;
@@ -55,9 +54,30 @@ console.log(firstInput);
 secondInput.push(event.target.textContent.trim());
 console.log(secondInput);
 
-} else if (performOperationId && firstInput.length && operator && secondInput.length ) {
+} else if (performOperationId && firstInput.length && operator && secondInput.length) {
 
-alert("this");
+firstInput = Number(firstInput.join(""));
+secondInput = Number(secondInput.join(""));
+
+switch (operator) {
+
+case "-": 
+  console.log(subtract(firstInput, secondInput));
+  break;
+
+case "+":
+  console.log(addition(firstInput, secondInput));
+  break;
+
+case "*":
+  console.log(multiply(firstInput, secondInput));
+  break;
+
+case "/":
+  console.log(divide(firstInput, secondInput));
+  break;
+
+}
 
 }
 
