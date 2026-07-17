@@ -25,9 +25,36 @@ return first / second;
 }
 
 
+function operate(operator, firstInput, secondInput) {
+
+switch(operator) {
+
+case "+": 
+  console.log(addition(firstInput, secondInput));
+  break;
+
+case "-": 
+  console.log(subtract(firstInput, secondInput));
+  break;
+
+case "/":
+  console.log(divide(firstInput, secondInput));
+  break;
+
+case "*":
+  console.log(multiply(firstInput, secondInput));
+  break;
+
+}
+
+
+
+}
+
 let firstInput = [];
 let operator = "";
 let secondInput = [];
+
 
 
 const buttonBox = document.querySelector(".button-box");
@@ -38,12 +65,12 @@ const operatorId = event.target.matches(".operator-button");
 const performOperationId = event.target.matches(".perform-operation-button");
 
 
-if (numberId && !operator) {
+ if (numberId && !operator) {
 
 firstInput.push(event.target.textContent.trim());
-console.log(firstInput);
+console.log(firstInput); 
 
-} else if (operatorId && firstInput.length) {
+}  else if (operatorId && firstInput.length) {
 
 operator = event.target.textContent.trim();
 console.log(operator);
@@ -52,32 +79,19 @@ console.log(firstInput);
 } else if (numberId && firstInput.length && operator) {
 
 secondInput.push(event.target.textContent.trim());
+console.log(operator);
 console.log(secondInput);
 
-} else if (performOperationId && firstInput.length && operator && secondInput.length) {
+}  else if (performOperationId && firstInput.length && operator && secondInput.length) {
 
 firstInput = Number(firstInput.join(""));
 secondInput = Number(secondInput.join(""));
 
-switch (operator) {
+operate(operator, firstInput, secondInput);
+firstInput = [];
+secondInput = [];
+operator = "";
 
-case "-": 
-  console.log(subtract(firstInput, secondInput));
-  break;
-
-case "+":
-  console.log(addition(firstInput, secondInput));
-  break;
-
-case "*":
-  console.log(multiply(firstInput, secondInput));
-  break;
-
-case "/":
-  console.log(divide(firstInput, secondInput));
-  break;
-
-}
 
 }
 
