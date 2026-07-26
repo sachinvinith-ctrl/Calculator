@@ -67,8 +67,17 @@ const performOperationId = event.target.matches(".perform-operation-button");
 
 if (operatorId && operator && firstInput.length && secondInput.length ) {
 
+if (Array.isArray(firstInput) && Array.isArray(secondInput)) {
+
+firstInput = Number(firstInput.join(""));
+secondInput = Number(secondInput.join(""));
+
+} else if (typeof firstInput === "string" && Array.isArray(secondInput)) {
+
 firstInput = Number(firstInput);
-secondInput = Number(secondInput);
+secondInput = Number(secondInput.join(""));
+
+}
 
 console.log(`${firstInput} ${operator} ${secondInput}`);
 
@@ -78,11 +87,7 @@ secondInput = [];
 
 console.log(`${firstInput} ${operator} ${secondInput}`);
 
-
-
-}
-
-else if (numberId && !operator) {
+} else if (numberId && !operator) {
 
 firstInput.push(event.target.textContent.trim());
 
@@ -105,7 +110,7 @@ console.log(`${firstInput} ${operator} ${secondInput}`);
 
 }  else if (performOperationId && firstInput.length && operator && secondInput.length) {
 
-if (typeof firstInput === "string" && typeof operator === "string" && typeof secondInput === "string") {
+if (Array.isArray(firstInput) && Array.isArray(secondInput)) {
 
 firstInput = Number(firstInput.join(""));
 secondInput = Number(secondInput.join(""));
