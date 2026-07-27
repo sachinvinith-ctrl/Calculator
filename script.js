@@ -115,10 +115,10 @@ if (Array.isArray(firstInput) && Array.isArray(secondInput)) {
 firstInput = Number(firstInput.join(""));
 secondInput = Number(secondInput.join(""));
 
-} else {
+} else if (typeof firstInput === "string" && Array.isArray(secondInput)) {
 
 firstInput = Number(firstInput);
-secondInput = Number(secondInput);
+secondInput = Number(secondInput.join(""));
 
 
 }
@@ -126,12 +126,13 @@ secondInput = Number(secondInput);
 
 operate(operator, firstInput, secondInput);
 
+console.log(`${firstInput} ${operator} ${secondInput}`);
+
 
 firstInput = [];
 secondInput = [];
 operator = "";
 
-console.log(`${firstInput} ${operator} ${secondInput}`);
 
 
 }
