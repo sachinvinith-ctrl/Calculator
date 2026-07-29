@@ -51,10 +51,16 @@ case "*":
 
 }
 
+const displayBox = document.querySelector(".display-box");
+displayBox.style.display = "flex";
+displayBox.style.alignItems = "center";
+displayBox.style.paddingRight = "10px";
+displayBox.style.fontSize = "30px";
+
 let firstInput = [];
 let operator = "";
 let secondInput = [];
-
+let updateResult;
 
 
 const buttonBox = document.querySelector(".button-box");
@@ -81,6 +87,7 @@ secondInput = Number(secondInput.join(""));
 console.log(`${firstInput} ${operator} ${secondInput}`);
 
 firstInput = String(operate(operator, firstInput, secondInput));
+displayBox.textContent = firstInput;
 operator = event.target.textContent.trim();
 secondInput = [];
 
@@ -89,6 +96,7 @@ console.log(`${firstInput} ${operator} ${secondInput}`);
 } else if (numberId && !operator) {
 
 firstInput.push(event.target.textContent.trim());
+displayBox.textContent = firstInput.join("");
 
 console.log(`${firstInput} ${operator} ${secondInput}`);
 
@@ -96,6 +104,7 @@ console.log(`${firstInput} ${operator} ${secondInput}`);
 } else if (operatorId && firstInput.length) {
 
 operator = event.target.textContent.trim();
+displayBox.textContent = operator;
 
 console.log(`${firstInput} ${operator} ${secondInput}`);
 
@@ -103,6 +112,7 @@ console.log(`${firstInput} ${operator} ${secondInput}`);
 } else if (numberId && firstInput.length && operator) {
 
 secondInput.push(event.target.textContent.trim());
+displayBox.textContent = secondInput.join("");
 
 console.log(`${firstInput} ${operator} ${secondInput}`);
 
@@ -123,10 +133,8 @@ secondInput = Number(secondInput.join(""));
 }
 
 
-operate(operator, firstInput, secondInput);
-
-console.log(`${firstInput} ${operator} ${secondInput}`);
-
+updateResult = operate(operator, firstInput, secondInput);
+displayBox.textContent = updateResult;
 
 firstInput = [];
 secondInput = [];
