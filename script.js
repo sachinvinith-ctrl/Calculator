@@ -32,19 +32,18 @@ switch(operator) {
 case "+": 
   console.log(addition(firstInput, secondInput));
   return addition(firstInput, secondInput);
-  break;
 
 case "-": 
   console.log(subtract(firstInput, secondInput));
-  break;
+  return subtract(firstInput, secondInput);
 
 case "/":
   console.log(divide(firstInput, secondInput));
-  break;
+  return divide(firstInput, secondInput);
 
 case "*":
   console.log(multiply(firstInput, secondInput));
-  break;
+  return multiply(firstInput, secondInput);
 
 }
 
