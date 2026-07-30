@@ -134,7 +134,9 @@ secondInput = Number(secondInput.join(""));
 
 
 updateResult = operate(operator, firstInput, secondInput);
-displayBox.textContent = updateResult;
+displayBox.textContent = updateResult.toFixed(2);
+
+
 
 firstInput = [];
 secondInput = [];
