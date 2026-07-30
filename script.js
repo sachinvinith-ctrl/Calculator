@@ -20,6 +20,13 @@ return first * second;
 
 function divide(first, second) {
 
+if (second === 0) {
+
+alert("Cannot divide by zero!");
+return 0;
+
+}
+
 return first / second;
 
 }
@@ -134,7 +141,9 @@ secondInput = Number(secondInput.join(""));
 
 
 updateResult = operate(operator, firstInput, secondInput);
-displayBox.textContent = updateResult.toFixed(2);
+displayBox.textContent = Number(updateResult.toFixed(2));
+
+
 
 
 
