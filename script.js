@@ -30,19 +30,15 @@ function operate(operator, firstInput, secondInput) {
 switch(operator) {
 
 case "+": 
-  console.log(addition(firstInput, secondInput));
   return addition(firstInput, secondInput);
 
 case "-": 
-  console.log(subtract(firstInput, secondInput));
   return subtract(firstInput, secondInput);
 
 case "/":
-  console.log(divide(firstInput, secondInput));
   return divide(firstInput, secondInput);
 
 case "*":
-  console.log(multiply(firstInput, secondInput));
   return multiply(firstInput, secondInput);
 
 }
@@ -69,8 +65,17 @@ buttonBox.addEventListener("click", (event) => {
 const numberId = event.target.matches(".number-button");
 const operatorId = event.target.matches(".operator-button");
 const performOperationId = event.target.matches(".perform-operation-button");
+const clearDisplayId = event.target.matches(".clear-button");
 
-if (operatorId && operator && firstInput.length && secondInput.length ) {
+if (clearDisplayId) {
+
+firstInput = [];
+operator = "";
+secondInput = [];
+updateResult = "";
+displayBox.textContent = updateResult;
+
+} else if (operatorId && operator && firstInput.length && secondInput.length ) {
 
 if (Array.isArray(firstInput) && Array.isArray(secondInput)) {
 
@@ -84,21 +89,18 @@ secondInput = Number(secondInput.join(""));
 
 }
 
-console.log(`${firstInput} ${operator} ${secondInput}`);
 
 firstInput = String(operate(operator, firstInput, secondInput));
 displayBox.textContent = firstInput;
 operator = event.target.textContent.trim();
 secondInput = [];
 
-console.log(`${firstInput} ${operator} ${secondInput}`);
 
 } else if (numberId && !operator) {
 
 firstInput.push(event.target.textContent.trim());
 displayBox.textContent = firstInput.join("");
 
-console.log(`${firstInput} ${operator} ${secondInput}`);
 
 
 } else if (operatorId && firstInput.length) {
@@ -106,7 +108,6 @@ console.log(`${firstInput} ${operator} ${secondInput}`);
 operator = event.target.textContent.trim();
 displayBox.textContent = operator;
 
-console.log(`${firstInput} ${operator} ${secondInput}`);
 
 
 } else if (numberId && firstInput.length && operator) {
@@ -114,7 +115,6 @@ console.log(`${firstInput} ${operator} ${secondInput}`);
 secondInput.push(event.target.textContent.trim());
 displayBox.textContent = secondInput.join("");
 
-console.log(`${firstInput} ${operator} ${secondInput}`);
 
 
 }  else if (performOperationId && firstInput.length && operator && secondInput.length) {
